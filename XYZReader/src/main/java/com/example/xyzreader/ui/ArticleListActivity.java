@@ -12,7 +12,6 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.text.format.DateUtils;
 import android.util.Log;
@@ -40,7 +39,6 @@ public class ArticleListActivity extends AppCompatActivity implements
         LoaderManager.LoaderCallbacks<Cursor> {
 
     private static final String TAG = ArticleListActivity.class.toString();
-    private Toolbar mToolbar;
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private RecyclerView mRecyclerView;
 
@@ -55,12 +53,9 @@ public class ArticleListActivity extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_article_list);
 
-//        mToolbar = findViewById(R.id.toolbar);
+        final View toolbarContainerView = findViewById(R.id.toolbar_container);
 
-
-//        final View toolbarContainerView = findViewById(R.id.toolbar_container);
-
-//        mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);
+        mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);
 
         mRecyclerView = findViewById(R.id.recycler_view);
         getLoaderManager().initLoader(0, null, this);
@@ -94,14 +89,14 @@ public class ArticleListActivity extends AppCompatActivity implements
         public void onReceive(Context context, Intent intent) {
             if (UpdaterService.BROADCAST_ACTION_STATE_CHANGE.equals(intent.getAction())) {
                 mIsRefreshing = intent.getBooleanExtra(UpdaterService.EXTRA_REFRESHING, false);
-//                updateRefreshingUI();
+                updateRefreshingUI();
             }
         }
     };
 
-//    private void updateRefreshingUI() {
-//        mSwipeRefreshLayout.setRefreshing(mIsRefreshing);
-//    }
+    private void updateRefreshingUI() {
+        mSwipeRefreshLayout.setRefreshing(mIsRefreshing);
+    }
 
     @Override
     public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
