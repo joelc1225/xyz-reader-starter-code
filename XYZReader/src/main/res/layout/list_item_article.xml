@@ -9,11 +9,13 @@
     <!--suppress AndroidLintContentDescription -->
     <com.example.xyzreader.ui.DynamicHeightNetworkImageView
         android:id="@+id/thumbnail"
-        android:layout_width="200dp"
+        android:layout_width="0dp"
         android:layout_height="130dp"
+        android:layout_marginEnd="8dp"
         android:paddingEnd="8dp"
         android:paddingStart="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/article_subtitle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -23,11 +25,13 @@
         style="@style/TextAppearance.AppCompat.Subhead"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:maxLines="4"
         android:textColor="@color/textColorBlk"
+        app:layout_constraintBottom_toTopOf="@+id/article_subtitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/thumbnail"
         app:layout_constraintTop_toTopOf="parent"
@@ -38,17 +42,15 @@
         style="@style/TextAppearance.AppCompat.Body1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
         android:ellipsize="end"
         android:maxLines="2"
         android:textColor="#6000"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/article_title"
-        app:layout_constraintStart_toStartOf="@+id/article_title"
-        app:layout_constraintTop_toBottomOf="@+id/article_title"
-        app:layout_constraintVertical_bias="0.22000003"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/thumbnail"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.75"
         tools:text="TEST TEST" />
 
 
