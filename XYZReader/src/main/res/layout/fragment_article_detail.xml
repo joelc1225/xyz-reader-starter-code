@@ -101,10 +101,11 @@
         android:layout_marginEnd="@dimen/fab_margin"
         android:contentDescription="@string/action_share"
         android:elevation="@dimen/fab_elevation"
+        app:pressedTranslationZ="@dimen/fab_press_translation_z"
         android:src="@drawable/ic_share"
         android:stateListAnimator="@anim/fab_state_list_anim"
         app:layout_anchor="@id/appbar_layout_detail"
         app:layout_anchorGravity="bottom|end"
-        android:backgroundTint="@color/theme_primary"/>
+        android:backgroundTint="@color/theme_primary" />
 
 </android.support.design.widget.CoordinatorLayout>
